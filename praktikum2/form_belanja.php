@@ -27,7 +27,7 @@
             </div>
             <div class="form-group row my-2">
                 <label class="col-4 fw-bold">Pilih Produk</label> 
-                <div class="col-8">
+                <div class="col-8 d-flex gap-3">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input name="produk" id="produk_0" type="radio" class="custom-control-input" value="tv" required> 
                     <label for="produk_0" class="custom-control-label">TV</label>
@@ -68,6 +68,8 @@
     
     <hr>
 <?php 
+
+if (isset($_POST['proses'])) {
 $customer = $_POST['customer'];
 $produk = $_POST['produk'];
 $jumlah = $_POST['jumlah'];
@@ -85,12 +87,11 @@ switch ($produk) {
         break;
 
 }
-
 echo "Nama Customer : ".$customer."<br>";
-echo "Produk Pilihan : ".$produk."<br>";
+echo "Produk Pilihan : ".strtoupper($produk)."<br>";
 echo "Jumlah Beli : ".$jumlah."<br>";
 echo "Total Belanja : Rp. ".$total."00.000,-";
-
+};
 ?>
 
 </body>
