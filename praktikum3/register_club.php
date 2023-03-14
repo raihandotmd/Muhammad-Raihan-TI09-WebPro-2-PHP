@@ -104,19 +104,45 @@
     </form>
     <hr>
 
-    <?php 
+    <?php
+        function skor($value) {
+          global $ar_skill;
+          $total = 0;
+          foreach ($value as $x) {
+            $total += $ar_skill[$x];
+          }
+          return $total;
+        }
 
+        function predikat($nilai) {
+          if ($nilai < 0) {
+              return "Tidak Memadai";
+          } else if ($nilai >= 0 && $nilai <= 40) {
+              return "Kurang";
+          } else if ($nilai > 40 && $nilai <= 60) {
+              return "Cukup";
+          } else if ($nilai > 60 && $nilai <= 100) {
+              return "Baik";
+          } else if ($nilai > 100 && $nilai <= 150) {
+              return "Sangat Baik";
+          } else {
+              return "Tidak Valid";
+          }
+        }
 
-  if (isset($_POST['submit'])) {
-    
-  };
-
+  if (isset($_POST['submit'])) { 
+    $skill = $_POST['skills'];
 ?>
     <p><b>NIM : <?= $_POST['nim']; ?> </b></p>
     <p><b>Nama : <?= $_POST['nama']; ?> </b></p>
+    <p><b>Domisili : <?= $_POST['domisili']; ?> </b></p>
     <p><b>Jenis Kelamin : <?= $_POST['gender']; ?> </b></p>
     <p><b>Program Studi : <?= $_POST['prodi']; ?> </b></p>
-    <p><b>Skill : <?= implode(", ", $_POST['skills']) ?> </b></p>
+    <p><b>Skill : <?= implode(", ", $skill) ?> </b></p>
+    <p><b>Skor Skill : <?= skor($skill); ?> </b></p>
+    <p><b>Kategori Skill : <?= predikat(skor($skill)); ?> </b></p>
+
+    <?php }?>
 
 </body>
 
