@@ -23,9 +23,10 @@
   $ar_skill = ["HTML" => 10, "CSS" => 10, "JavaScript" => 20, "RWD Bootstrap" => 20, "PHP" => 30, "Python" => 30, "Java" => 50];
   $ar_domisili = ["Jakarta", "Depok", "Bogor", "Tanggerang", "Bekasi", "Lainnya"];
   ?>
-
-
-
+    <div class="group">
+        <h1 class="mb-4 fw-bold">Form Registrasi IT Club Data Science</h1>
+        <hr>
+    </div>
     <form class="row gap-2" method="POST">
         <div class="form-group row align-items-center">
             <label for="nim" class="col-4">NIM</label>
