@@ -26,7 +26,7 @@
 
 
 
-    <form class="row gap-2">
+    <form class="row gap-2" method="POST">
         <div class="form-group row align-items-center">
             <label for="nim" class="col-4">NIM</label>
             <div class="col-8">
@@ -50,12 +50,12 @@
             <div class="col-8 d-flex gap-2">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input name="gender" id="gender_0" type="radio" required="required" class="custom-control-input"
-                        value="laki-laki">
+                        value="L">
                     <label for="gender_0" class="custom-control-label">Laki-Laki</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input name="gender" id="gender_1" type="radio" required="required" class="custom-control-input"
-                        value="perempuan">
+                        value="P">
                     <label for="gender_1" class="custom-control-label">Perempuan</label>
                 </div>
             </div>
@@ -102,7 +102,21 @@
             </div>
         </div>
     </form>
+    <hr>
 
+    <?php 
+
+
+  if (isset($_POST['submit'])) {
+    
+  };
+
+?>
+    <p><b>NIM : <?= $_POST['nim']; ?> </b></p>
+    <p><b>Nama : <?= $_POST['nama']; ?> </b></p>
+    <p><b>Jenis Kelamin : <?= $_POST['gender']; ?> </b></p>
+    <p><b>Program Studi : <?= $_POST['prodi']; ?> </b></p>
+    <p><b>Skill : <?= implode(", ", $_POST['skills']) ?> </b></p>
 
 </body>
 
