@@ -66,7 +66,7 @@
             <div class="col-8">
                 <select id="prodi" name="prodi" class="form-select" required="required">
                     <?php foreach ($ar_prodi as $matkul => $val) { ?>
-                        <option value="<?= $matkul ?>"><?= $val ?></option>
+                    <option value="<?= $matkul ?>"><?= $val ?></option>
                     <?php } ?>
 
                 </select>
@@ -77,12 +77,12 @@
             <div class="col-8">
                 <div class="d-flex gap-2 flex-wrap">
                     <?php foreach ($ar_skill as $skill => $point) { ?>
-                        <span class="checkbox-group">
-                            <input type="checkbox" name="skills[]" id="skill_0" value="<?= $skill ?>">
-                            <label for="skill_0" class="custom-control-label">
-                                <?= $skill ?>
-                            </label>
-                        </span>
+                    <span class="checkbox-group">
+                        <input type="checkbox" name="skills[]" id="skill_0" value="<?= $skill ?>">
+                        <label for="skill_0" class="custom-control-label">
+                            <?= $skill ?>
+                        </label>
+                    </span>
                     <?php } ?>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="col-8">
                 <select id="domisili" name="domisili" required="required" class="form-select">
                     <?php foreach ($ar_domisili as $val) { ?>
-                        <option value="<?= $val ?>"><?= $val ?></option>
+                    <option value="<?= $val ?>"><?= $val ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -110,6 +110,7 @@
     {
         global $ar_skill;
         $total = 0;
+        // if the value is an array it will loop it, otherwise return 0.
         if (is_array($value)) {
             foreach ($value as $x) {
                 $total += $ar_skill[$x];
@@ -137,43 +138,45 @@
 
 
     if (isset($_POST['submit'])) {
+        // Check if user select skill or not, if not return 'none'.
         if (isset($_POST['skills'])) {
             $skill = $_POST['skills'];
         } else {
             $skill = 'None';
         }
         ?>
-        <p><b>NIM :
-                <?= $_POST['nim']; ?>
-            </b></p>
-        <p><b>Nama :
-                <?= $_POST['nama']; ?>
-            </b></p>
-        <p><b>Domisili :
-                <?= $_POST['domisili']; ?>
-            </b></p>
-        <p><b>Jenis Kelamin :
-                <?= $_POST['gender']; ?>
-            </b></p>
-        <p><b>Program Studi :
-                <?= $_POST['prodi']; ?>
-            </b></p>
-        <p>
-            <b>Skill :
-                <?php
+    <p><b>NIM :
+            <?= $_POST['nim']; ?>
+        </b></p>
+    <p><b>Nama :
+            <?= $_POST['nama']; ?>
+        </b></p>
+    <p><b>Domisili :
+            <?= $_POST['domisili']; ?>
+        </b></p>
+    <p><b>Jenis Kelamin :
+            <?= $_POST['gender']; ?>
+        </b></p>
+    <p><b>Program Studi :
+            <?= $_POST['prodi']; ?>
+        </b></p>
+    <p>
+        <b>Skill :
+            <?php
+                // Check if variable $skill is an array or not.
                 if (is_array($skill)) {
                     echo implode(", ", $skill);
                 } else {
                     echo $skill;
                 } ?>
-            </b>
-        </p>
-        <p><b>Skor Skill :
-                <?= skor($skill); ?>
-            </b></p>
-        <p><b>Kategori Skill :
-                <?= predikat(skor($skill)); ?>
-            </b></p>
+        </b>
+    </p>
+    <p><b>Skor Skill :
+            <?= skor($skill); ?>
+        </b></p>
+    <p><b>Kategori Skill :
+            <?= predikat(skor($skill)); ?>
+        </b></p>
 
     <?php } ?>
 
