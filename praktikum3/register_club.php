@@ -134,14 +134,14 @@
             return "Tidak Valid";
         }
     }
-    if (isset($_POST['skills'])) {
-        $skill = $_POST['skills'];
-    } else {
-        $skill = 'None';
-    }
+
 
     if (isset($_POST['submit'])) {
-
+        if (isset($_POST['skills'])) {
+            $skill = $_POST['skills'];
+        } else {
+            $skill = 'None';
+        }
         ?>
         <p><b>NIM :
                 <?= $_POST['nim']; ?>
