@@ -54,7 +54,7 @@ $row = $st->fetch();
             </td>
         </tr>
         <tr>
-            <td>Jenis Produk</td>
+            <td>Jenis Kartu</td>
             <td>
                 <?= $row['kartu_id'] ?>
             </td>
